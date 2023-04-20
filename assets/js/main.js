@@ -305,16 +305,92 @@ function quantityChanged(event) {
 }
 
 function comprarButtonClicked() {
+    var doc = new jsPDF(); 
+    //var imgData = 'data:image/jpeg;base64,'+ Base64.encode('assets/images/comprapdf.jpeg');
+    let total = 0;
+    let cantidad = 0;
+    const shoppingCartTotal = document.querySelector('.shoppingCartTotal');
+  
+    const shoppingCartItems = document.querySelectorAll('.shoppingCartItem');
+  
+    shoppingCartItems.forEach((shoppingCartItem) => {
+      const shoppingCartItemPriceElement = shoppingCartItem.querySelector(
+        '.shoppingCartItemPrice'
+      );
+      const shoppingCartItemPrice = Number(
+        shoppingCartItemPriceElement.textContent.replace('$', '')
+      );
+      const shoppingCartItemQuantityElement = shoppingCartItem.querySelector(
+        '.shoppingCartItemQuantity'
+      );
+      const shoppingCartItemQuantity = Number(
+        shoppingCartItemQuantityElement.value
+      );
+      
+      total = total + shoppingCartItemPrice * shoppingCartItemQuantity;
+        cantidad = cantidad + shoppingCartItemQuantity;
+      
+      //doc.text(20, 20, 'cantidad: '+ cantidad);
+      
+      
+    });
+
+    doc.text(80, 20, '¡Gracias por su compra!');
+    doc.text(20, 50, 'Cantidad de items: '+ cantidad);
+    doc.text(20, 60, 'Total de la compra: $' + total);
+
+
+    
+    //doc.addImage(imgData, 'JPEG', 15, 40, 180, 160);
+
+    doc.save('formulario.pdf');
+
+ 
   shoppingCartItemsContainer.innerHTML = '';
   updateShoppingCartTotal();
-}
+};
+$('#formularioContacto').validate({
+    rules: {
+        nombre: 'required',
+        email: {
+            required: true,
+            email: true
+        },
+        mensaje: 'required'
+    },
+    messages: {
+        nombre: 'Por favor ingrese su nombre',
+        email: {
+            required: 'Por favor ingrese su dirección de correo electrónico',
+            email: 'Por favor ingrese una dirección de correo electrónico válida'
+        },
+        mensaje: 'Por favor ingrese un mensaje'
+    },
+    submitHandler: function(form) {
+        // Obtener los valores de los campos del formulario
+        var nombre = $('#nombre').val();
+        var email = $('#email').val();
 
-
-
-
-
-
-
-
-
-
+        // Hacer la petición AJAX para enviar los datos al servidor
+        $.ajax({
+            url: 'https://reqres.in/api/users?page=2', // URL de regres.in para la petición de contacto
+            method: 'POST', // Método HTTP POST
+            data: {
+                name: nombre,
+                email: email,
+            },
+            success: function(response) {
+                // Aquí puedes manejar la respuesta del servidor si es necesario
+                console.log('Éxito:', response);
+                // Puedes mostrar un mensaje de éxito al usuario
+                alert('¡Mensaje enviado con éxito!');
+            },
+            error: function(xhr, status, error) {
+                // Aquí puedes manejar los errores de la petición AJAX si es necesario
+                console.error('Error:', error);
+                // Puedes mostrar un mensaje de error al usuario
+                alert('Error al enviar el mensaje. Por favor inténtelo nuevamente.');
+            }
+        });
+    }
+});

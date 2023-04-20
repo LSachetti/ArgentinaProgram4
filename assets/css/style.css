@@ -939,7 +939,7 @@ About section style
 .main_feature{
     width:100%;
 }
-.feature_content{}
+
 .feature_photo{
     position: relative;
 }
@@ -963,7 +963,7 @@ About section style
     font-style: italic;
 
 }
-.counter_item h5{}
+
 .counter_item .separator_small{
     margin: 20px auto;
 }
@@ -972,7 +972,7 @@ About section style
 /*Work Section
 =====================================*/
 
-.main_work{}
+
 .work_item{
     position: relative;
     top:-40px;
@@ -1377,11 +1377,6 @@ Contact Section style
 .main_contact{
     overflow: hidden;
 }
-.main_contact a.btn{
-    /*width:100%;*/
-}
-
-.widget_socail{}
 .widget_socail ul li a i{
     background-color: #434343;
     width:40px;
@@ -1495,8 +1490,6 @@ Footer Section style
 
 /*Teams Feature section
 ===============================*/
-
-.main_teams{}
 .team_item:hover .team_img img{
     transform: scale(1.1);
 }
@@ -1539,7 +1532,6 @@ Footer Section style
 ==================================================
 */
 
-.action_item{}
 .action_item i{
     width:70px;
     height: 70px;
