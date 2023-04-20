@@ -36,28 +36,6 @@
     <body data-spy="scroll" data-target=".navbar-collapse">
 
 
-        <!-- Preloader -->
-
-        <div id="loading">
-            <div id="loading-center">
-                <div id="loading-center-absolute">
-                    <div class="object"></div>
-                    <div class="object"></div>
-                    <div class="object"></div>
-                    <div class="object"></div>
-                    <div class="object"></div>
-                    <div class="object"></div>
-                    <div class="object"></div>
-                    <div class="object"></div>
-                    <div class="object"></div>
-                    <div class="object"></div>
-                </div>
-            </div>
-        </div>
-
-        <!--End off Preloader -->
-
-
         <div class="culmn">
             <!--Home page style-->
 
@@ -870,8 +848,8 @@
                 </div>
             </section>
 
-            <!--Contact Us Section-->
-            <section id="contact" class="contact fix">
+             <!--Contact Us Section-->
+             <section id="contact" class="contact fix">
                 <div class="container">
                     <div class="row">
                         <div class="main_contact p-top-100">
@@ -880,34 +858,34 @@
                                 <h5><em>Te juramos que este formulario lo va a leer alguien.</em></h5>
                                 <div class="separator_left"></div>
                             </div>
-                                <div class="col-md-6 sm-m-top-30">
-                                    <form class="" action="subcribe.php">
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <div class="form-group"> 
-                                                    <label>Nombre *</label>
-                                                    <input id="first_name" name="name" type="text" class="form-control" required="">
-                                                </div>
+                            <div class="col-md-6 sm-m-top-30">
+                                <form class="">
+                                    <form id="formularioContacto" class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group"> 
+                                                <label for="nombre">Nombre *</label>
+                                                <input id="nombre" name="name" type="text" class="form-control" required>
                                             </div>
+                                        </div>
 
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label>Email *</label>
-                                                    <input id="email" name="email" type="text" class="form-control">
-                                                </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="email">Email *</label>
+                                                <input id="email" name="email" type="email" class="form-control" required>
                                             </div>
+                                        </div>
 
                                         <div class="col-sm-12">
                                             <div class="form-group"> 
                                                 <label>Escribinos un mensaje *</label>
-                                                <textarea class="form-control" rows="6"></textarea>
+                                                <textarea id="mensaje" name="mensaje" class="form-control" rows="6" required></textarea>
                                             </div>
                                             <div class="form-group">
-                                                <a href="" class="btn btn-default">ENVIAR <i class="fa fa-long-arrow-right"></i></a>
+                                                <input type="submit" class="btn btn-default">
                                             </div>
                                         </div>
 
-                                    </div>
+                                    </form>
 
                                 </form>
                             </div>
@@ -964,20 +942,18 @@
 
         <!-- JS includes -->
 
-        <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
         <script src="assets/js/vendor/bootstrap.min.js"></script>
-
         <script src="assets/js/isotope.min.js"></script>
         <script src="assets/js/jquery.magnific-popup.js"></script>
         <script src="assets/js/jquery.easing.1.3.js"></script>
         <script src="assets/js/slick.min.js"></script>
         <script src="assets/js/jquery.collapse.js"></script>
         <script src="assets/js/bootsnav.js"></script>
-
-
-
         <script src="assets/js/plugins.js"></script>
         <script src="assets/js/main.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/f/libs/jquery.form/4.3.0/jquery.form.min.js" integrity="sha384-qlmct0AOBiA2VPZkMY3+2WqkHtIQ9lSdAsAn5RUJD/3vA5MKDgSGcdmIv4ycVxyn" crossorigin="anonymous"></script>
 
     </body>
 </html>
